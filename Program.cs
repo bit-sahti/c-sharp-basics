@@ -1,5 +1,7 @@
-﻿using System.Text;
+﻿using System.Numerics;
+using System.Text;
 using System.Text.RegularExpressions;
+
 namespace Studies
 {
     class Program
@@ -11,8 +13,9 @@ namespace Studies
             // Console.WriteLine(RepeatWord("a", 30));
             // Console.WriteLine(GetDaysFromDate(new DateTime(2000, 1, 1)));
             // Console.WriteLine(GetSumFromRange(1, 99));
-            Console.WriteLine(RemoveVowels("hEllo"));
-            Console.WriteLine(RemoveVowelsRegex("hEllo"));
+            // Console.WriteLine(RemoveVowels("hEllo"));
+            // Console.WriteLine(RemoveVowelsRegex("hEllo"));
+            PowersOfTwo(2);
         }
 
         public static int FahrenheitToCelsius(int fahrenheit)
@@ -64,6 +67,18 @@ namespace Studies
         public static string RemoveVowelsRegex(string word)
         {
             return Regex.Replace(word, "[aiueo]", "", RegexOptions.IgnoreCase);
+        }
+
+        public static BigInteger[] PowersOfTwo(int n)
+        {
+            BigInteger[] result = new BigInteger[n + 1];
+
+            for (int i = 0; i <= n; i++)
+            {
+                result[i] = (BigInteger)(Math.Pow(2, i));
+            }
+
+            return result;
         }
     }
 }
