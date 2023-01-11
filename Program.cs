@@ -1,14 +1,18 @@
-﻿namespace Studies
+﻿using System.Text;
+using System.Text.RegularExpressions;
+namespace Studies
 {
     class Program
     {
         public static void Main()
         {
-            Console.WriteLine(FahrenheitToCelsius(100));
-            Console.WriteLine(GetSubstring("Hello World", 0, 5));
-            Console.WriteLine(RepeatWord("a", 30));
-            Console.WriteLine(GetDaysFromDate(new DateTime(2000, 1, 1)));
-            Console.WriteLine(GetSumFromRange(1, 99));
+            // Console.WriteLine(FahrenheitToCelsius(100));
+            // Console.WriteLine(GetSubstring("Hello World", 0, 5));
+            // Console.WriteLine(RepeatWord("a", 30));
+            // Console.WriteLine(GetDaysFromDate(new DateTime(2000, 1, 1)));
+            // Console.WriteLine(GetSumFromRange(1, 99));
+            Console.WriteLine(RemoveVowels("hEllo"));
+            Console.WriteLine(RemoveVowelsRegex("hEllo"));
         }
 
         public static int FahrenheitToCelsius(int fahrenheit)
@@ -41,6 +45,25 @@
             }
 
             return result;
+        }
+
+        public static string RemoveVowels(string word)
+        {
+            string vowels = "aiueo";
+
+            StringBuilder result = new StringBuilder();
+
+            foreach (char letter in word)
+            {
+                if (!vowels.Contains(Char.ToLower(letter))) result.Append(letter);
+            }
+
+            return result.ToString();
+        }
+
+        public static string RemoveVowelsRegex(string word)
+        {
+            return Regex.Replace(word, "[aiueo]", "", RegexOptions.IgnoreCase);
         }
     }
 }
