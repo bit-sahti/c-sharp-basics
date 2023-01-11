@@ -16,6 +16,7 @@ namespace Studies
             // Console.WriteLine(RemoveVowels("hEllo"));
             // Console.WriteLine(RemoveVowelsRegex("hEllo"));
             PowersOfTwo(2);
+            PowersOfTwoEnumerable(2);
         }
 
         public static int FahrenheitToCelsius(int fahrenheit)
@@ -79,6 +80,11 @@ namespace Studies
             }
 
             return result;
+        }
+
+        public static BigInteger[] PowersOfTwoEnumerable(int n)
+        {
+            return Enumerable.Range(0, n + 1).Select(i => BigInteger.Pow(2, i)).ToArray();
         }
     }
 }
